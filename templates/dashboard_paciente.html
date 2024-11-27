@@ -1,0 +1,22 @@
+<h1>Bienvenido, {{ session['nombre_paciente'] }}</h1>
+<h2>Doctores Asignados</h2>
+
+<table border="1">
+    <tr>
+        <th>Nombre del Doctor</th>
+        <th>Especialidad</th>
+        <th>Fecha de la Cita</th>
+        <th>Acción</th>
+    </tr>
+    {% for doctor in doctores %}
+    <tr>
+        <td>{{ doctor[1] }} {{ doctor[2] }} {{ doctor[3] }}</td>
+        <td>{{ doctor[4] }}</td>
+        <td>{{ doctor[5] }}</td>
+        <td><a href="{{ url_for('ver_doctor', id_doctor=doctor[0]) }}">Ver Detalles</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+<a href="{{ url_for('registro_cita') }}">Programar Nueva Cita</a>
+<a href="{{ url_for('logout') }}">Cerrar Sesión</a>

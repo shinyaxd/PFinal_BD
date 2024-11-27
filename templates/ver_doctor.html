@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Información del Doctor</title>
+</head>
+<body>
+    <h1>Información del Doctor</h1>
+    <p><strong>Nombre:</strong> {{ doctor[0] }} {{ doctor[1] }} {{ doctor[2] }}</p>
+    <p><strong>Documento:</strong> {{ doctor[3] }}</p>
+    <p><strong>Fecha de Nacimiento:</strong> {{ doctor[4] }}</p>
+    <br>
+    <a href="{{ url_for('dashboard_paciente') }}">Volver</a>
+</body>
+</html>
+
+

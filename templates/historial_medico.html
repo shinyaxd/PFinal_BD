@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Historial Médico</title>
+</head>
+<body>
+    <h1>Historial Médico</h1>
+    <table border="1">
+        <tr>
+            <th>Fecha</th>
+            <th>Observaciones</th>
+            <th>Medicamento</th>
+            <th>Dosis</th>
+            <th>Frecuencia</th>
+            <th>Duración</th>
+        </tr>
+        {% for registro in historial %}
+        <tr>
+            <td>{{ registro[0] }}</td>
+            <td>{{ registro[1] }}</td>
+            <td>{{ registro[2] }}</td>
+            <td>{{ registro[3] }}</td>
+            <td>{{ registro[4] }}</td>
+            <td>{{ registro[5] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('dashboard_paciente') }}">Volver</a>
+</body>
+</html>

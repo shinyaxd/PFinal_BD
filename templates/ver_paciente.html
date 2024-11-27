@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Información del Paciente</title>
+</head>
+<body>
+    <h1>Información del Paciente</h1>
+    <p><strong>Nombre:</strong> {{ paciente[0] }} {{ paciente[1] }} {{ paciente[2] }}</p>
+    <p><strong>Fecha de Nacimiento:</strong> {{ paciente[3] }}</p>
+    <p><strong>Fecha de la Cita:</strong> {{ paciente[4] }}</p>
+    <p><strong>Especialidad:</strong> {{ paciente[6] }}</p>
+    <p><strong>Asistió a la Cita:</strong> {{ 'Sí' if paciente[5] else 'No' }}</p>
+
+    <h2>Marcar Asistencia</h2>
+    <form method="POST">
+        <label>
+            <input type="radio" name="asistio" value="1" {% if paciente[5] %}checked{% endif %}> Sí
+        </label>
+        <label>
+            <input type="radio" name="asistio" value="0" {% if not paciente[5] %}checked{% endif %}> No
+        </label>
+        <button type="submit" name="marcar_asistencia">Guardar</button>
+    </form>
+
+    <h2>Agregar al Historial Médico</h2>
+    <form method="POST">
+        <label for="observaciones">Observaciones:</label><br>
+        <textarea name="observaciones" rows="4" cols="50" required></textarea><br>
+        
+        <label for="atencion_realizada">ID de Atención Realizada:</label><br>
+        <input type="text" name="atencion_realizada" required><br>
+
+        <h3>Medicamentos:</h3>
+        <label for="medicamento">Medicamento:</label><br>
+        <input type="text" name="medicamento" required><br>
+        <label for="dosis">Dosis:</label><br>
+        <input type="text" name="dosis" required><br>
+        <label for="frecuencia">Frecuencia:</label><br>
+        <input type="text" name="frecuencia" required><br>
+        <label for="duracion">Duración:</label><br>
+        <input type="text" name="duracion" required><br>
+
+        <button type="submit" name="guardar_historial">Guardar Historial</button>
+    </form>
+
+    <a href="{{ url_for('dashboard_doctor') }}">Volver al Dashboard</a>
+</body>
+</html>
